@@ -55,10 +55,13 @@ void print_basic_gpu_info() {
   cudaDeviceProp prop;
   cudaGetDeviceProperties(&prop, dev);
 
+  int clockRate;
+  cudaDeviceGetAttribute(&clockRate, cudaDevAttrClockRate, dev);
+
   log_printf(NORMAL, "Device name: %s", prop.name);
   log_printf(NORMAL, "Device compute capability: %d.%d",prop.major, prop.minor);
   log_printf(NORMAL, "Device # multiprocessors: %d", prop.multiProcessorCount);
-  log_printf(NORMAL, "Device clock rate: %d", prop.clockRate);
+  log_printf(NORMAL, "Device clock rate: %d", clockRate);
 
 }
 

@@ -126,7 +126,7 @@ public:
 
   typedef typename thrust::iterator_difference<Iterator>::type difference_type;
 
-  struct stride_functor : public thrust::unary_function<difference_type,difference_type> {
+  struct stride_functor {
 
     difference_type stride;
 
